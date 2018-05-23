@@ -16,24 +16,29 @@ def get_url(story_id):
     """ return url for a story """
     return requests.get("https://hacker-news.firebaseio.com/v0/item/{0}.json".format(story_id)).json()
 
+def open_url(url):
+    """ open url in default browser """
+    os.system("open {0}".format(url))
+
+def open_story_urls(story_type):
+    """ if story has url, open it in default browser """
+    for story in get_stories(story_type):
+        url = get_url(story)
+        if 'url' in url:
+            open_url(url['url'])
+
 def main():
     # Open Newest Page
-    os.system("open https://news.ycombinator.com/newest")
+    open_url("https://news.ycombinator.com/newest")
 
     # Open Top 30 Newest URLs
-    for story in get_stories('new'):
-        url = get_url(story)
-        if 'url' in url:
-            os.system("open {0}".format(url['url']))
+    open_story_urls('new')
 
     # Open Top Page
-    os.system("open https://news.ycombinator.com/news")
+    open_url("https://news.ycombinator.com/news")
 
     # Open Top 30 Top URLs
-    for story in get_stories('top'):
-        url = get_url(story)
-        if 'url' in url:
-            os.system("open {0}".format(url['url']))
+    open_story_urls('top')
 
 if __name__ == '__main__':
     main()
