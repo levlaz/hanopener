@@ -1,0 +1,19 @@
+{
+  "name": "hanopener",
+  "version": "1.0.0",
+  "description": "Chrome Extension to Open Top 30 Newest / Top Posts from Hacker News",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/levlaz/hanopener.git"
+  },
+  "author": "Lev Lazinskiy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/levlaz/hanopener/issues"
+  },
+  "homepage": "https://github.com/levlaz/hanopener#readme"
+}

@@ -1,0 +1,15 @@
+{
+    "name": "hanopener",
+    "description": "Open Top 30 Newest / Top Posts from Hacker News",
+    "version": "1.0",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_icon": "hanopener.png"
+    },
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "permissions": [
+        "https://hacker-news.firebaseio.com/*"
+    ]
+}
