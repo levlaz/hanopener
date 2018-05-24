@@ -25,28 +25,24 @@ function openUrl(url) {
     chrome.tabs.create({ url: url});
 }
 
+function openStoryUrl(storyType) {
+    getStories(storyType, function() {
+        this.forEach(function(storyId) {
+            getStoryUrl(storyId, function() {
+                if (this.url !== undefined) {
+                    openUrl(this.url);
+                }
+            });
+        });
+    });
+}
+
 chrome.browserAction.onClicked.addListener(function(activeTab) {
     // Get Newest
     openUrl("https://news.ycombinator.com/newest");
-    getStories('new', function() {
-        this.forEach(function(storyId) {
-            getStoryUrl(storyId, function() {
-                if (this.url !== undefined) {
-                    openUrl(this.url);
-                }
-            });
-        });
-    });
+    openStoryUrl('new');
 
     // Get Top
     openUrl("https://news.ycombinator.com/news");
-    getStories('top', function() {
-        this.forEach(function(storyId) {
-            getStoryUrl(storyId, function() {
-                if (this.url !== undefined) {
-                    openUrl(this.url);
-                }
-            });
-        });
-    });
-})
+    openStoryUrl('top');
+});
