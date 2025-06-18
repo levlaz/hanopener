@@ -1,1 +1,1 @@
-No instructions found. Please look around the filesystem and update me
+Development environment with git, Python, and Node.js for creating a Hacker News version of lobster-tail
