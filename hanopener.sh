@@ -46,10 +46,10 @@ if ! curl -s -L "https://news.ycombinator.com" > "$temp_file"; then
 fi
 
 # Extract story URLs using grep and sed
-# Look for <a href="..." class="storylink"> pattern (HN structure)
-story_urls=$(grep -o '<a href="[^"]*" class="storylink"' "$temp_file" | \
-             sed 's/<a href="//g' | \
-             sed 's/" class="storylink".*//g' | \
+# Look for <span class="titleline"><a href="..."> pattern (HN structure)
+story_urls=$(grep -o '<span class="titleline"><a href="[^"]*"' "$temp_file" | \
+             sed 's/<span class="titleline"><a href="//g' | \
+             sed 's/".*//g' | \
              sort -u)
 
 # Convert relative URLs to absolute URLs
