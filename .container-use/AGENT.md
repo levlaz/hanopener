@@ -1,0 +1,1 @@
+Development environment with git, Python, and Node.js for creating a Hacker News version of lobster-tail
